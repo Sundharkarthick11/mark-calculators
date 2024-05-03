@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="row1">
+    <h3>Internal marks calculation</h3>
+    <div>
+    <p><label>CAT1 mark: <input id="cat1" type="number" value="0"></label></p>
+    <p><label>Assignment1 mark: <input id="ass1" type="number" value="0"></label></p>
+    <p><label>CAT2 mark: <input id="cat2" type="number" value="0"></label></p>
+    <p><label>Assignment1 mark: <input id="ass2" type="number" value="0"></label></p>
+    <button onclick="calcInternalMark()">calculate</button>
+    <p>Add one more internal marks</p><button onclick="addMoreInternal()">Add</button>
+</div>
+    <p><label>Result:<input id="result" type="text" value="0"></label>out of 40</p>
+
+    <h3>External mark calculation</h3>
+    <label>Semester mark: <input id="semMark" type="number" valu="0"></label>
+    <button onclick="calcExternalMark()">calculate</button>
+    <p><label>Result:<input id="externalMarkResult" type="text" value="0"></label>out of 60</p>
+
+    <h3>Total mark calculation</h3>
+    <label>Internal mark: <input id="internalMark" type="number"></label>
+    <label>External mark: <input id="externalMark" type="number"></label>
+    <button onclick="calcMark()">calculate</button>
+    <p><label>Result:<input id="totalMarkResult" type="text" value="0"></label>out of 100</p>
+    </div>
+
+    <div class="row2">
+        <h2>Mark sheet generator</h2>
+        <form id="markInputSheet">
+            <label>Subject Name: <input id="subName" placeholder="enter the subject name" type="text"></label>
+            <label>Subject Credit: <input id="subCredit" placeholder="enter the credit" type="text"></label>
+            <h3>Internal mark :-</h3>
+            <p><label>CAT1 mark: <input id="cat1" type="number" value="0"></label></p>
+            <p><label>Assignment1 mark: <input id="ass1" type="number" value="0"></label></p>
+            <p><label>CAT2 mark: <input id="cat2" type="number" value="0"></label></p>
+            <p><label>Assignment1 mark: <input id="ass2" type="number" value="0"></label></p>
+            
+        </form>
+    </div>
+
+    <script>
+        //internal mark calculation
+        var cat1=document.getElementById("cat1")
+        var assign1=document.getElementById("ass1")
+        var cat2=document.getElementById("cat2")
+        var assign2=document.getElementById("ass2")
+        var result=document.getElementById("result")
+
+        function calcInternalMark(){
+            var cat1value=Number(cat1.value)
+            var cat2value=Number(cat2.value)
+            var ass1value=Number(assign1.value)
+            var ass2value=Number(assign2.value)
+            var mark=((cat1value+cat2value+ass1value+ass2value)/2)*0.4
+            result.value=mark
+        }
+        //external mark caculator
+        var semMark=document.getElementById("semMark")
+        var semResult=document.getElementById("externalMarkResult")
+        function calcExternalMark(){
+            semMarkValue=Number(semMark.value)
+            var mark=semMarkValue*0.6
+            semResult.value=mark
+        }
+
+        var internalMark=document.getElementById("internalMark")
+        var externalMark=document.getElementById("externalMark")
+        var totalMarkResult=document.getElementById("totalMarkResult")
+        function calcMark(){
+            var internalValue=Number(internalMark.value)
+            var externalValue=Number(externalMark.value)
+            var totalMark=internalValue+externalValue
+            totalMarkResult.value=totalMark
+        }
+    </script>
+
+    
+</body>
+</html>
